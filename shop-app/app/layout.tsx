@@ -9,18 +9,20 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body>
-        <main>
-          <nav className={styles.navbar}>
-            <Link href="/">Home</Link>
-            <Link href="/products">Products</Link>
-            <Link href="/">About</Link>
-            <Link href="/">Contact us</Link>
 
-          </nav>
+      <body className={styles.body}>
+        <nav className={styles.navbar}>
+          <Link href="/">Home</Link>
+          <Link href="/products">Products</Link>
+          <Link href="/">About</Link>
+          <Link href="/">Contact us</Link>
+
+        </nav>
+        <main className={styles.main}>
+
           {children}
         </main>
-        </body>
+      </body>
     </html>
   )
 }
