@@ -25,7 +25,7 @@ export default async function ProductPage({params}: any) {
             <div>
                 <h2>{product.title}</h2>
                 <h3>{product.price}</h3>
-                <AddProduct product={product}/>
+                <AddProduct props={product}/>
             </div>
         </div>
     )

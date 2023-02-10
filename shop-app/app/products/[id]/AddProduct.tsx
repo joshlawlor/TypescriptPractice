@@ -2,13 +2,11 @@
 
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
-export default function AddProduct(product: any) {
-    const [title, setTitle] = useState('');
-    const [price, setPrice] = useState('');
-
-    const router = useRouter();
+export default function AddProduct({props}: any) {
+    const [title, setTitle] = useState(props.title);
+    const [price, setPrice] = useState(props.price);
+    console.log(props.title)
 
     const addProduct = async () => {
         await fetch(`http://127.0.0.1:8090/api/collections/cart/records`, {
