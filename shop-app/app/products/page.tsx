@@ -34,7 +34,7 @@ function Product({ product }: any) {
         <Link href={`/products/${id}`}>
             <div>
                 <h2>{title}</h2>
-                <h4>{price}</h4>
+                <h4>${price}</h4>
             </div>
 
         </Link>
