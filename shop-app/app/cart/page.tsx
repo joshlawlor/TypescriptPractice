@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 async function getCart() {
     const res = await fetch(`http://127.0.0.1:8090/api/collections/cart/records?page=1&perPage=30`, { cache: 'no-store' })
     const data = await res.json();
@@ -5,16 +7,6 @@ async function getCart() {
 
 }
 
-//  function deleteItem(productId: any) {
-//     console.log(productId)
-//     const res =  fetch(
-//         `http://127.0.0.1:8090/api/collections/products/records/${productId}`,
-
-//         {
-//             method: "DELETE"
-//         }
-//     )
-// }
 
 // const deleteItem = async () => {
 //     await fetch(`http://127.0.0.1:8090/api/collections/cart/records/`, {
@@ -54,12 +46,14 @@ function Product({ product }: any) {
     const { id, title, price } = product || {};
 
     return (
-        <div>
-            <h2>{title}</h2>
-            <h4>{price}</h4>
-            
-            {/* <button onClick={deleteItem}>Remove from Cart</button> */}
-        </div>
+        <Link href={`/products/${id}`}>
+            <div>
+                <h2>{title}</h2>
+                <h4>${price}</h4>
+            </div>
+
+        </Link>
+
 
     )
 }

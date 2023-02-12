@@ -22,11 +22,10 @@ export default function AddProduct({props}: any) {
             }),
 
         }); 
-        router.push('/cart')
+        window.location.href = '/cart'
     }
 
     function deleteItem() {
-        console.log(`ID:`+id)
         const res =  fetch(
             `http://127.0.0.1:8090/api/collections/cart/records/${id}`,
     
@@ -43,7 +42,7 @@ export default function AddProduct({props}: any) {
                 <button type="submit">
                     Add to Cart
                 </button>
-                <button onClick={deleteItem}>Delete item</button>
+                <button onClick={deleteItem}>Remove item from Cart</button>
 
             </form>
         )
