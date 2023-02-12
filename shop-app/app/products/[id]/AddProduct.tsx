@@ -8,7 +8,6 @@ export default function AddProduct({props}: any) {
     const [title, setTitle] = useState(props.title);
     const [price, setPrice] = useState(props.price);
     const [id, setId] = useState(props.id)
-    console.log(props.title)
 
     const addProduct = async () => {
         await fetch(`http://127.0.0.1:8090/api/collections/cart/records`, {
@@ -26,10 +25,10 @@ export default function AddProduct({props}: any) {
         router.push('/cart')
     }
 
-    function deleteItem(productId: any) {
-        console.log(productId)
+    function deleteItem() {
+        console.log(`ID:`+id)
         const res =  fetch(
-            `http://127.0.0.1:8090/api/collections/products/records/${productId}`,
+            `http://127.0.0.1:8090/api/collections/cart/records/${id}`,
     
             {
                 method: "DELETE"
