@@ -7,6 +7,7 @@ export default function AddProduct({props}: any) {
     const router = useRouter()
     const [title, setTitle] = useState(props.title);
     const [price, setPrice] = useState(props.price);
+    const [id, setId] = useState(props.id)
     console.log(props.title)
 
     const addProduct = async () => {
@@ -18,12 +19,24 @@ export default function AddProduct({props}: any) {
             body: JSON.stringify({
                 title,
                 price,
+                id
             }),
 
         }); 
         router.push('/cart')
     }
 
+    function deleteItem(productId: any) {
+        console.log(productId)
+        const res =  fetch(
+            `http://127.0.0.1:8090/api/collections/products/records/${productId}`,
+    
+            {
+                method: "DELETE"
+            }
+        )
+    }
+    
 
         return (
             <form onSubmit={addProduct}>
@@ -31,7 +44,8 @@ export default function AddProduct({props}: any) {
                 <button type="submit">
                     Add to Cart
                 </button>
-                
+                <button onClick={deleteItem}>Delete item</button>
+
             </form>
         )
 }
